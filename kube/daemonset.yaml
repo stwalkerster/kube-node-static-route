@@ -27,3 +27,15 @@ spec:
             limits:
               cpu: 100m
               memory: 128Mi
+          envFrom:
+          - configMapRef:
+            name: node-static-route-controller-env
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: node-static-route-controller-env
+  namespace: kube-system
+data:
+  subnets: "192.168.22.0/24,192.168.32.0/24"
+  gateway: "192.168.2.226"
