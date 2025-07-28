@@ -17,7 +17,7 @@ spec:
       hostNetwork: true
       containers:
         - name: node-static-route-controller
-          image: stwalkerster/kube-node-static-route:latest
+          image: ghcr.io/stwalkerster/kube-node-static-route:main
           securityContext:
             privileged: true
           resources:
@@ -29,7 +29,7 @@ spec:
               memory: 128Mi
           envFrom:
           - configMapRef:
-            name: node-static-route-controller-env
+              name: node-static-route-controller-env
 ---
 apiVersion: v1
 kind: ConfigMap
